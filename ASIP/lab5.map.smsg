@@ -1,0 +1,12 @@
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "br" differs only in case from object "BR" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "brz" differs only in case from object "BRZ" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "addi" differs only in case from object "ADDI" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "subi" differs only in case from object "SUBI" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "sr0" differs only in case from object "SR0" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "srh0" differs only in case from object "SRH0" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "clr" differs only in case from object "CLR" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "mov" differs only in case from object "MOV" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "mova" differs only in case from object "MOVA" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "movr" differs only in case from object "MOVR" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "movrhs" differs only in case from object "MOVRHS" in the same scope
+Info (10281): Verilog HDL Declaration information at control_fsm.v(4): object "pause" differs only in case from object "PAUSE" in the same scope

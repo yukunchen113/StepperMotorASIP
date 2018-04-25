@@ -1,0 +1,22 @@
+
+State Machine - |control_fsm|state
+Name state.PAUSE_DELAY state.MOVRHS_DELAY state.MOVRHS_STAGE2 state.MOVR_DELAY state.MOVR_STAGE2 state.PAUSE state.MOVRHS state.MOVR state.MOV state.CLR state.SRH0 state.SR0 state.SUBI state.ADDI state.BRZ state.BR state.DECODE state.FETCH state.RESET 
+state.RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.FETCH 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.DECODE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.BR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.BRZ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.ADDI 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.SUBI 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.SR0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.SRH0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.CLR 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.MOV 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.MOVR 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.MOVRHS 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.PAUSE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.MOVR_STAGE2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.MOVR_DELAY 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.MOVRHS_STAGE2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.MOVRHS_DELAY 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.PAUSE_DELAY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

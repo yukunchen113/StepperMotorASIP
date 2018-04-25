@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="lab5">
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5|datapath:the_datapath|instruction_rom:the_instruction_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qp81.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5|datapath:the_datapath|stepper_rom:the_stepper_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_d881.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

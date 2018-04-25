@@ -1,0 +1,173 @@
+module datapath (input clk, reset_n,
+				// Control signals
+				input write_reg_file, result_mux_select,
+				input [1:0] op1_mux_select, op2_mux_select,
+				input start_delay_counter, enable_delay_counter,
+				input commit_branch, increment_pc,
+				input alu_add_sub, alu_set_low, alu_set_high,
+				input load_temp, increment_temp, decrement_temp,
+				input [1:0] select_immediate,
+				input [1:0] select_write_address,
+				// Status outputs
+				output br, brz, addi, subi, sr0, srh0, clr, mov, mova, movr, movrhs, pause,
+				output delay_done,
+				output temp_is_positive, temp_is_negative, temp_is_zero,
+				output register0_is_zero,
+				// Motor control outputs
+				output [3:0] stepper_signals
+);
+// The comment /*synthesis keep*/ after the declaration of a wire
+// prevents Quartus from optimizing it, so that it can be observed in simulation
+// It is important that the comment appear before the semicolon
+wire [7:0] position /*synthesis keep*/;
+wire [7:0] delay /*synthesis keep*/;
+wire [7:0] register0 /*synthesis keep*/;
+
+decoder the_decoder (
+	// Inputs
+	.instruction (),
+	// Outputs
+	.br (),
+	.brz (),
+	.addi (),
+	.subi (),
+	.sr0 (),
+	.srh0 (),
+	.clr (),
+	.mov (),
+	.mova (),
+	.movr (),
+	.movrhs (),
+	.pause ()
+);
+regfile the_regfile(
+	// Inputs
+	.clk (),
+	.reset_n (),
+	.write (),
+	.data (), 
+	.select0 (),
+	.select1 (),
+	.wr_select (),
+	// Outputs
+	.selected0 (),
+	.selected1 (),
+	.delay (delay),
+	.position (position),
+	.register0 (register0)
+);
+
+op1_mux the_op1_mux(
+	// Inputs
+	.select (),
+	.pc (),
+	.register (),
+	.register0 (register0),
+	.position (position),
+	// Outputs
+	.result()
+);
+
+op2_mux the_op2_mux(
+	// Inputs
+	.select (),
+	.register (),
+	.immediate (),
+	// Outputs
+	.result ()
+);
+
+delay_counter the_delay_counter(
+	// Inputs
+	.clk(),
+	.reset_n (),
+	.start (),
+	.enable (),
+	.delay (delay),
+	// Outputs
+	.done ()
+);
+
+stepper_rom the_stepper_rom(
+	// Inputs
+	.address (),
+	.clock (),
+	// Outputs
+	.q ()
+);
+
+pc the_pc(
+	// Inputs
+	.clk (),
+	.reset_n (),
+	.branch (),
+	.increment (),
+	.newpc (),
+	// Outputs
+	.pc ()
+);
+
+instruction_rom the_instruction_rom(
+	// Inputs
+	.address (),
+	.clock (),
+	// Outputs
+	.q ()
+);
+
+alu the_alu(
+	// Inputs
+	.add_sub (),
+	.set_low (),
+	.set_high (),
+	.operanda (),
+	.operandb (),
+	// Outputs
+	.result ()
+);
+
+temp_register the_temp_register(
+	// Inputs
+	.clk (),
+	.reset_n (),
+	.load (),
+	.increment (),
+	.decrement (),
+	.data (),
+	// Outputs
+	.negative (),
+	.positive (),
+	.zero ()
+);
+
+immediate_extractor the_immediate_extractor(
+	// Inputs
+	.instruction (),
+	.select (),
+	// Outputs
+	.immediate ()
+);
+
+write_address_select the_write_address_select(
+	// Inputs
+	.select (),
+	.reg_field0 (),
+	.reg_field1 (),
+	// Outputs
+	.write_address()
+);
+
+result_mux the_result_mux (
+	.select_result (),
+	.alu_result (),
+	.result ()
+);
+
+branch_logic the_branch_logic(
+	// Inputs
+	.register0 (register0),
+	// Outputs
+	.branch ()
+);
+
+endmodule
